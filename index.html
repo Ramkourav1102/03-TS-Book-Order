@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03 TS Book Order</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <div class="wrapper">
+    <form action="" name="TS">
+      <h1>03 TS Book Order</h1>
+      <div class="input-box">
+        <input type="text" placeholder="Name" name="Name" required>
+      </div>
+      <div class="input-box">
+        <input type="number" placeholder="Mobile Number" name="Number" required>
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Address" name="Address" required>
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="District" name="District" required>
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Tehsil" name="Tehsil" required>
+      </div>
+      <div class="input-box">
+        <input type="number" placeholder="Pincode" name="Pincode" required>
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Sewadar Roll No" name="Sewadar" required>
+      </div>
+
+      <div class="remember-forgot">
+        <label><input type="checkbox" readonly>Everything is Correct</label>
+      </div>
+      <button type="submit" class="btn" name="submit">Submit</button>
+    </form>
+  </div>
+  <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbz0tV7_m-nc8koKE4JPt1fjuYOStoBi3PW7GHFsC6MX16XTAVO-Fl8UH7tuIUABVami/exec'
+      const form = document.forms['TS']
+
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => alert("Your Response has been Submitted Successfully"))
+          .catch(error => console.error('Error!', error.message))
+      })
+  </script>
+</body>
+</html>
